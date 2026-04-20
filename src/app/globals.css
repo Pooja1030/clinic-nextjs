@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* tailwind.css or global.css */
+.input {
+  @apply w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring focus:border-blue-500;
+}
+.btn-blue {
+  @apply bg-blue-600 text-white px-4 py-1.5 rounded hover:bg-blue-700 text-sm;
+}
+.btn-green {
+  @apply bg-green-600 text-white px-4 py-1.5 rounded hover:bg-green-700 text-sm;
+}
+.btn-red {
+  @apply bg-red-600 text-white px-4 py-1.5 rounded hover:bg-red-700 text-sm;
+}
+
+@media print {
+  body * {
+    visibility: hidden; /* hide everything */
+  }
+  .print-area, .print-area * {
+    visibility: visible; /* show only the prescription content */
+  }
+  .no-print {
+    display: none !important; /* extra safety for buttons/modals */
+  }
+  .shadow {
+    box-shadow: none !important;
+  }
+  .max-w-3xl {
+    max-width: 100% !important;
+  }
+}
