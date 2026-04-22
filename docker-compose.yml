@@ -1,0 +1,21 @@
+version: '3.3'
+
+services:
+   backend:
+     build: ./backend
+     container_name: clinic_backend
+     ports:
+       - "5000:5000"
+     env_file:
+       - ./backend/.env
+   
+   
+   frontend:
+      build: .
+      container_name: clinic_frontend
+      ports:
+        - "3000:3000"
+      env_file:
+        - .env.production
+      depends_on:
+        - backend
