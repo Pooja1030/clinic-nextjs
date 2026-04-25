@@ -1,36 +1,97 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🏥 Clinic Management System (MERN + Docker + CI/CD)
 
-## Getting Started
+A full-stack clinic management application built using the MERN stack, containerized with Docker, and integrated with CI/CD using GitHub Actions.
 
-First, run the development server:
+---
+
+## 🚀 Tech Stack
+
+* **Frontend:** Next.js (React)
+* **Backend:** Node.js, Express
+* **Database:** MongoDB
+* **Containerization:** Docker, Docker Compose
+* **CI/CD:** GitHub Actions
+* **Cloud Storage:** Cloudinary
+
+---
+
+## 📦 Features
+
+* User authentication (JWT-based)
+* Patient & appointment management
+* Prescription handling
+* Image uploads via Cloudinary
+* RESTful APIs
+* Fully containerized architecture
+
+---
+
+## 🐳 Docker Setup
+
+### Run locally using Docker
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+docker compose up --build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Services
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+* Frontend → http://localhost:3000
+* Backend → http://localhost:5000
+* MongoDB → port 27017
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🔐 Environment Variables
 
-To learn more about Next.js, take a look at the following resources:
+### Backend (`backend/.env`)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```env
+PORT=5000
+MONGO_URI=mongodb://mongo:27017/clinic
+JWT_SECRET=your_secret
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+CLOUDINARY_CLOUD_NAME=
+CLOUDINARY_API_KEY=
+CLOUDINARY_API_SECRET=
+```
 
-## Deploy on Vercel
+### Frontend (`.env.production`)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```env
+NEXT_PUBLIC_API_URL=http://localhost:5000
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## ⚙️ CI/CD Pipeline
+
+Implemented using GitHub Actions:
+
+* Builds Docker images for frontend & backend
+* Injects environment variables securely
+* Runs containers
+* Tests backend API using curl
+
+---
+
+## 🧠 Architecture
+
+Client (Next.js) → Backend (Node.js/Express) → MongoDB
+↓
+Cloudinary (Image Storage)
+
+---
+
+## 📌 Future Improvements
+
+* Add role-based access control
+* Add unit & integration tests
+* Deploy on AWS (EC2 / ECS)
+* Add monitoring (Prometheus + Grafana)
+
+---
+
+## 👩‍💻 Author
+
+Pooja Sawant
